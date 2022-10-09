@@ -61,4 +61,8 @@ public class ItemService {
     public List<Item> getMissingItems() {
         return itemRepo.findByMissingAndUserId(true, userId);
     }
+
+    public List<Item> getMissingItemsBySection(String section) {
+        return itemRepo.findByMissingAndSectionAndUserId(userId, section);
+    }
 }

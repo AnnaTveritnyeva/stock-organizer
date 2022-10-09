@@ -27,4 +27,7 @@ public interface ItemRepo extends MongoRepository<Item, String> {
     List<Item> findByUserId(String userId);
 
     boolean existsByIdAndUserId(String id, String userId);
+
+    @Query(value = "{'user_id': :#{#user_id}, 'organization_hierarchy': :#{#section}, 'missing':true}")
+    List<Item> findByMissingAndSectionAndUserId(@Param("user_id") String userId, @Param("section") String section);
 }
