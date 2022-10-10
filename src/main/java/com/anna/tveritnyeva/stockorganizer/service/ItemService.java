@@ -66,11 +66,11 @@ public class ItemService {
         return itemRepo.findByMissingAndSectionAndUserId(userId, section);
     }
 
-    public List<Item> getByStoreName (String storeName){
+    public List<Item> getItemsByStoreName(String storeName) {
         return itemRepo.findByStoreNameAndUserId(userId, storeName);
     }
 
-    public List<Item> getMissingByStoreName (String storeName){
-        return itemRepo.findByStoreNameAndUserId(userId, storeName);
+    public List<Item> getMissingItemsByStoreName(String storeName) {
+        return itemRepo.findMissingByStoreNameAndUserId(userId, storeName);
     }
 }
