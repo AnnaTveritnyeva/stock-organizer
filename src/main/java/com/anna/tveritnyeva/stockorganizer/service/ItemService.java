@@ -34,11 +34,11 @@ public class ItemService {
         }
     }
 
-    public void deleteItem(Item item) throws ItemException {
-        if (!itemRepo.existsByIdAndUserId(item.getId(), userId)) {
+    public void deleteItemById(String id) throws ItemException {
+        if (!itemRepo.existsByIdAndUserId(id, userId)) {
             throw new ItemException(ExceptionMessage.ITEM_DOES_NOT_EXIST);
         } else {
-            itemRepo.delete(item);
+            itemRepo.deleteById(id);
         }
     }
 
