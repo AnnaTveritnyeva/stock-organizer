@@ -1,5 +1,6 @@
 package com.anna.tveritnyeva.stockorganizer.documents;
 
+import com.anna.tveritnyeva.stockorganizer.beans.StoreUrl;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,7 +24,7 @@ public class Item {
 
     @Field(name = "store_URLs")
     @Singular
-    private List<String> storeURLs;
+    private List<StoreUrl> storeURLs;
 
     @Field(name = "organization_hierarchy")
     @Singular("section")
