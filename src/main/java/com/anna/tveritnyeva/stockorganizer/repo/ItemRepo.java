@@ -30,4 +30,10 @@ public interface ItemRepo extends MongoRepository<Item, String> {
 
     @Query(value = "{'user_id': :#{#user_id}, 'organization_hierarchy': :#{#section}, 'missing':true}")
     List<Item> findByMissingAndSectionAndUserId(@Param("user_id") String userId, @Param("section") String section);
+
+    @Query(value = "{'user_id': :#{#user_id}, 'store_URLs.storeName': :#{#storeName}}")
+    List<Item> findByStoreNameAndUserId(@Param("user_id") String userId, @Param("storeName") String storeName);
+
+    @Query(value = "{'user_id': :#{#user_id}, 'store_URLs.storeName': :#{#storeName}, 'missing':true}")
+    List<Item> findMissingByStoreNameAndUserId(@Param("user_id") String userId, @Param("storeName") String storeName);
 }
