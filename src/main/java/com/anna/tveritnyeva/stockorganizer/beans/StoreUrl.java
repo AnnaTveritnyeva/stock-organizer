@@ -1,13 +1,15 @@
 package com.anna.tveritnyeva.stockorganizer.beans;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class StoreUrl {
-    private String storeName;
-    private String storeUrl;
+    private String name;
+    private String url;
 }
