@@ -46,12 +46,12 @@ public class ItemService {
         return itemRepo.findByNameAndUserId(name, userId);
     }
 
-    public List<Item> getItemsByCategory(String category) {
-        return itemRepo.findByCategoryAndUserId(userId, category);
+    public List<Item> getItemsByCategory(String categoryName) {
+        return itemRepo.findByCategoryAndUserId(userId, categoryName);
     }
 
-    public List<Item> getItemsBySection(String section) {
-        return itemRepo.findBySectionAndUserId(userId, section);
+    public List<Item> getItemsBySection(String sectionName) {
+        return itemRepo.findBySectionAndUserId(userId, sectionName);
     }
 
     public List<Item> getAllItems() {
@@ -62,8 +62,8 @@ public class ItemService {
         return itemRepo.findByMissingAndUserId(true, userId);
     }
 
-    public List<Item> getMissingItemsBySection(String section) {
-        return itemRepo.findByMissingAndSectionAndUserId(userId, section);
+    public List<Item> getMissingItemsBySection(String sectionName) {
+        return itemRepo.findByMissingAndSectionAndUserId(userId, sectionName);
     }
 
     public List<Item> getItemsByStoreName(String storeName) {
