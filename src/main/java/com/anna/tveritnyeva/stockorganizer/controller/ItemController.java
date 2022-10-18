@@ -21,7 +21,7 @@ public class ItemController {
         return itemService.addItem(item);
     }
 
-    @PutMapping("updateItem")
+    @PostMapping("updateItem")
     @ResponseStatus(HttpStatus.OK)
     public Item updateItem(@RequestBody Item item) throws ItemException {
         return itemService.updateItem(item);
