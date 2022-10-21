@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemController {
     private final ItemService itemService;
 
-    @PutMapping("addItem")
+    @PostMapping("addItem")
     @ResponseStatus(HttpStatus.CREATED)
     public Item addItem(@RequestBody Item item) throws ItemException {
         return itemService.addItem(item);
@@ -35,37 +35,44 @@ public class ItemController {
 
     @GetMapping("getAllItems")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getAllItems () {
+    public List<Item> getAllItems() {
         return itemService.getAllItems();
     }
 
     @GetMapping("getItemsBySection/{section}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getItemsBySection (@RequestParam String section) {
+    public List<Item> getItemsBySection(@RequestParam String section) {
         return itemService.getItemsBySection(section);
     }
 
     @GetMapping("getItemsByStoreName/{storeName}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getItemsByStoreName (@RequestParam String storeName){
+    public List<Item> getItemsByStoreName(@RequestParam String storeName) {
         return itemService.getItemsByStoreName(storeName);
     }
 
     @GetMapping("getMissingItems")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getMissingItems () {
+    public List<Item> getMissingItems() {
         return itemService.getMissingItems();
     }
 
     @GetMapping("getMissingItemsBySection/{section}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getMissingItemsBySection (@RequestParam String section) {
+    public List<Item> getMissingItemsBySection(@RequestParam String section) {
         return itemService.getMissingItemsBySection(section);
     }
 
     @GetMapping("getMissingItemsByStoreName/{storeName}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Item> getMissingItemsByStoreName (@RequestParam String storeName){
+    public List<Item> getMissingItemsByStoreName(@RequestParam String storeName) {
         return itemService.getMissingItemsByStoreName(storeName);
+    }
+
+    @PutMapping("toggleMissing")
+    @ResponseStatus(HttpStatus.OK)
+    public Item toggleMissing(@RequestBody Item item) {
+        Item item1 = itemService.toggleMissing(item);
+        return item1;
     }
 }

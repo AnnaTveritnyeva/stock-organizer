@@ -73,4 +73,9 @@ public class ItemService {
     public List<Item> getMissingItemsByStoreName(String storeName) {
         return itemRepo.findMissingByStoreNameAndUserId(userId, storeName);
     }
+
+    public Item toggleMissing(Item item) {
+        item.setMissing(!item.isMissing());
+        return itemRepo.save(item);
+    }
 }
